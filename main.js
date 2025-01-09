@@ -1,8 +1,3 @@
-// 変数の初期化
-let untyped = '';
-let typed = '';
-let score = 0;
-
 // 複数のテキストを格納する配列
 const textLists = [
   'Hello World','This is my App','How are you?',
@@ -19,6 +14,12 @@ const textLists = [
   'var let const','Windows Mac Linux iOS Android',
   'programming'
 ];
+
+// 変数の初期化
+let untyped = '';
+let typed = '';
+let score = 0;
+
 
 // ランダムなテキストを表示
 const createText = () => {
@@ -119,25 +120,22 @@ const timer = () => {
   }, 1000); 
 };
 
-// ゲームスタート時の処理
-$(function() {  
-  // 「スタート」ボタンがクリックされたら
-  $('#start').on('click', function() {
-    // カウントダウンタイマーを開始する
-    timer();
-
-    // ランダムなテキストを表示する
-    createText();
-
-    // 「スタート」ボタンを非表示にする
-    $('#start').hide();
-
-    // キーが入力されたら入力判定の関数keyPressを呼び出す
-    $(document).on('keydown', keyPress);
-  });
-});
-
 // スタート時の表示
 $(function() {
   $('#untyped').text('スタートボタンで開始');
+});
+
+// 「スタート」ボタンがクリックされたら
+$('#start').on('click', function() {
+  // カウントダウンタイマーを開始する
+  timer();
+
+  // ランダムなテキストを表示する
+  createText();
+
+  // 「スタート」ボタンを非表示にする
+  $('#start').hide();
+
+  // キーが入力されたら入力判定の関数keyPressを呼び出す
+  $(document).on('keydown', keyPress);
 });
